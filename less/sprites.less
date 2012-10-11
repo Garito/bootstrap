@@ -14,8 +14,7 @@
 // For the white version of the icons, just add the .icon-white class:
 // <i class="icon-inbox icon-white"></i>
 
-[class^="icon-"],
-[class*=" icon-"] {
+.iconize(@reverse: false) {
   display: inline-block;
   width: 14px;
   height: 14px;
@@ -26,6 +25,15 @@
   background-position: 14px 14px;
   background-repeat: no-repeat;
   margin-top: 1px;
+}
+
+.iconize(@reverse) when (@reverse = true) {
+  background-image: url("@{iconWhiteSpritePath}");
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  .iconize();
 }
 
 /* White icons with optional class, or on hover/active states of certain elements */
